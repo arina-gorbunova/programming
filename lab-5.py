@@ -1,34 +1,50 @@
-#Задание 1
-import math
+# #Задание 1
+# import math
 
-print(f"{'x':>8} {'sin(x)':>10}")
-print("-" * 20)
+# print(f"{'x':>8} {'sin(x)':>10}")
+# print("-" * 20)
 
-for i in range(11):
-    x = i * math.pi / 10
-    y = math.sin(x)
-    print(f"{x:8.4f} {y:10.4f}")
+# for i in range(11):
+#     x = i * math.pi / 10
+#     y = math.sin(x)
+#     print(f"{x:8.4f} {y:10.4f}")
 
-#для y = cos(x)
-print(f"{'x':>8} {'cos(x)':>10}")
-print("-" * 20)
+# #для y = cos(x)
+# print(f"{'x':>8} {'cos(x)':>10}")
+# print("-" * 20)
 
-for i in range(11):
-    x = i * math.pi / 10
-    y = math.cos(x)
-    print(f"{x:8.4f} {y:10.4f}")
+# for i in range(11):
+#     x = i * math.pi / 10
+#     y = math.cos(x)
+#     print(f"{x:8.4f} {y:10.4f}")
 
-#для y = tg(x)
-print(f"{'x':>8} {'tan(x)':>10}")
-print("-" * 20)
+# #для y = tg(x)
+# print(f"{'x':>8} {'tan(x)':>10}")
+# print("-" * 20)
 
-for i in range(11):
-    x = i * math.pi / 10
-    if i == 5: # проверяем, тк в точке x = пи/2 тангенс не существует
-        print(f"{x:8.4f} {'не существует':>10}")
-    else:
-        y = math.tan(x)
-        print(f"{x:8.4f} {y:10.4f}")
-    
+# for i in range(11):
+#     x = i * math.pi / 10
+#     if i == 5: # проверяем, тк в точке x = пи/2 тангенс не существует
+#         print(f"{x:8.4f} {'не существует':>10}")
+#     else:
+#         y = math.tan(x)
+#         print(f"{x:8.4f} {y:10.4f}")
+
+
+#Задание 2
+n = int(input("Введите N: "))
+
+sum_numbers = 0
+product = 1
+sum_squares = 0
+
+for i in range(1, n + 1):
+    sum_numbers += i
+    product *= i
+    sum_squares += i ** 2
+
+print(f"Сумма: {sum_numbers}")
+print(f"Произведение (N!): {product}")
+print(f"Сумма квадратов: {sum_squares}")
 
 
