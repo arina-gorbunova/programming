@@ -48,23 +48,41 @@
 # print(f"Сумма квадратов: {sum_squares}")
 
 
-#Задание 3
-n = int(input("Введите N: "))
+# #Задание 3
+# n = int(input("Введите N: "))
 
-a, b = 0, 1
+# a, b = 0, 1
 
-print(f"Первые {n} чисел Фибоначчи:")
-for i in range(n):
-    print(a, end=" ")
-    a, b = b, a + b
-print()
+# print(f"Первые {n} чисел Фибоначчи:")
+# for i in range(n):
+#     print(a, end=" ")
+#     a, b = b, a + b
+# print()
 
-#через рекурсию
-def fib(n):
-    if n <= 1: 
-        return n 
-    return (fib(n - 1) + fib(n - 2))
+# #через рекурсию
+# def fib(n):
+#     if n <= 1: 
+#         return n 
+#     return (fib(n - 1) + fib(n - 2))
 
-print(f"Первые {n} чисел Фибоначчи(через рекурсию):")
-for i in range(n):
-    print(fib(i), end=" ")
+# print(f"Первые {n} чисел Фибоначчи(через рекурсию):")
+# for i in range(n):
+#     print(fib(i), end=" ")
+
+
+
+#Задание 4
+n = int(input("Введите число: "))
+original = n
+factors = []
+
+divisor = 2
+while divisor * divisor <= n:
+    while n % divisor == 0:
+        factors.append(divisor)
+        n //= divisor
+    divisor += 1
+if n > 1:
+    factors.append(n)
+
+print(f"{original} = {' x '.join(map(str, factors))}")
