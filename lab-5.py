@@ -89,24 +89,50 @@
 
 
 
-#Задание 5
-n = int(input("Введите число: "))
-original = n
+# #Задание 5
+# n = int(input("Введите число: "))
+# original = n
 
-count = 0
-total = 0
-product = 1
-reversed_num = 0
+# count = 0
+# total = 0
+# product = 1
+# reversed_num = 0
 
-while n > 0:
-    digit = n % 10
-    count += 1
-    total += digit
-    product *= digit
-    reversed_num = reversed_num * 10 + digit 
-    n //= 10
+# while n > 0:
+#     digit = n % 10
+#     count += 1
+#     total += digit
+#     product *= digit
+#     reversed_num = reversed_num * 10 + digit 
+#     n //= 10
 
-print(f"Количество цифр: {count}")
-print(f"Сумма цифр: {total}")
-print(f"Произведение цифр: {product}")
-print(f"Перевернутое число: {reversed_num}")
+# print(f"Количество цифр: {count}")
+# print(f"Сумма цифр: {total}")
+# print(f"Произведение цифр: {product}")
+# print(f"Перевернутое число: {reversed_num}")
+
+
+# #Задание 6
+# n = int(input("Введите число: "))
+# original = n
+# reversed_num = 0
+
+# temp = n
+# while temp > 0:
+#     digit = temp % 10
+#     reversed_num = reversed_num * 10 + digit
+#     temp //= 10
+
+# if original == reversed_num:
+#     print(f"{original} - палиндром")
+# else:
+#     print(f"{original} - не палиндром")
+
+#через срез строки
+text = input("Введите строку: ")
+original = text
+if text == text[::-1]:
+    print(f"{original} - палиндром")
+else:
+    print(f"{original} - не палиндром")
+    
