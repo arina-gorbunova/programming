@@ -20,22 +20,43 @@
 # print(f"Без дубликатов: {unique}")
 
 
-#Задание 2
-numbers = [1, 2, 3, 2, 4, 5, 1, 6, 3, 7]
+# #Задание 2
+# numbers = [1, 2, 3, 2, 4, 5, 1, 6, 3, 7]
 
-#через словарь с подсчётом
-from collections import Counter
-counts = Counter(numbers)
-duplicates = [num for num, count in counts.items() if count > 1]
+# #через словарь с подсчётом
+# from collections import Counter
+# counts = Counter(numbers)
+# duplicates = [num for num, count in counts.items() if count > 1]
 
-print(f"Дубликаты(через словарь): {duplicates}")  #[1, 2, 3]
+# print(f"Дубликаты(через словарь): {duplicates}")  #[1, 2, 3]
 
-#через множества
-seen = set()
-duplicates2 = set()
-for num in numbers:
-    if num in seen:
-        duplicates2.add(num)
-    seen.add(num)
+# #через множества
+# seen = set()
+# duplicates2 = set()
+# for num in numbers:
+#     if num in seen:
+#         duplicates2.add(num)
+#     seen.add(num)
 
-print(f"Дубликаты(через множества): {list(duplicates2)}")
+# print(f"Дубликаты(через множества): {list(duplicates2)}")
+
+
+
+#задание 3
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Через zip
+transposed = [list(row) for row in zip(*matrix)]
+
+# Вывод
+print("Исходная матрица:")
+for row in matrix:
+    print(row)
+
+print("\nТранспонированная матрица:")
+for row in transposed:
+    print(row)
