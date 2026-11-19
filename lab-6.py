@@ -89,25 +89,57 @@
 #     print(f"{name}: {gpa}")
 
 
-#задание 5
+# #задание 5
 
-#через множества
-list1 = [1, 2, 3, 4, 5]
-list2 = [4, 5, 6, 7, 8]
+# #через множества
+# list1 = [1, 2, 3, 4, 5]
+# list2 = [4, 5, 6, 7, 8]
 
-set1 = set(list1)
-set2 = set(list2)
-union = set1 | set2
-intersection = set1 & set2
-difference = set1 - set2
+# set1 = set(list1)
+# set2 = set(list2)
+# union = set1 | set2
+# intersection = set1 & set2
+# difference = set1 - set2
 
-print(f"Объединение: {sorted(union)}")
-print(f"Пересечение: {sorted(intersection)}")
-print(f"Разность: {sorted(difference)}")
+# print(f"Объединение: {sorted(union)}")
+# print(f"Пересечение: {sorted(intersection)}")
+# print(f"Разность: {sorted(difference)}")
 
-#с сохранением порядка
-union_ordered = list1 + [x for x in list2 if x not in list1]
-intersection_ordered = [x for x in list1 if x in list2]
+# #с сохранением порядка (через генератор списков)
+# union_ordered = list1 + [x for x in list2 if x not in list1]
+# intersection_ordered = [x for x in list1 if x in list2]
 
-print(f"Объединение(через генератор списков): {union_ordered}")
-print(f"Пересечение(через генератор списков): {intersection_ordered}")
+# print(f"Объединение(через генератор списков): {union_ordered}")
+# print(f"Пересечение(через генератор списков): {intersection_ordered}")
+
+
+#задание 6 (в группах)
+#Найти все пары чисел, сумма которых равна заданному числу
+# Запрашиваем искомую сумму
+while True:
+    try:
+        target = int(input("Введите искомую сумму: "))
+        break
+    except ValueError:
+        print("Ошибка: сумма должна быть целым числом.")
+        
+
+# Поиск пар 
+pairs = []
+
+for num in range(0, target + 1): # от 0 до target
+    complement = target - num
+    if num <= complement: # защита от дублей (a,b) и (b,a)
+        pairs.append((num, complement))
+
+
+# Вывод результата
+print(f"Искомая сумма: {target}")
+
+if pairs:
+    print(f"Найденные пары: {pairs}")
+    print(f"Количество найденных пар: {len(pairs)}")
+else:
+    print("Пар с такой суммой не найдено.")
+
+
