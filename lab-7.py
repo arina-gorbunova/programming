@@ -99,23 +99,68 @@
 #     print(f"{result} {type_}: {value}")
 
 
-# Задание 5
-students = [
-    ("Иван", 25, 4.5),
-    ("Мария", 22, 4.85),
-    ("Пётр", 30, 4.2),
-    ("Анна", 20, 4.95),
-]
+# # Задание 5
+# students = [
+#     ("Иван", 25, 4.5),
+#     ("Мария", 22, 4.85),
+#     ("Пётр", 30, 4.2),
+#     ("Анна", 20, 4.95),
+# ]
 
-# Заголовок
-print(f"{'Имя':<10} {'Возраст':>8} {'Балл':>8}")
-print("-" * 28)
+# # Заголовок
+# print(f"{'Имя':<10} {'Возраст':>8} {'Балл':>8}")
+# print("-" * 28)
 
-# Данные
-for name, age, gpa in students:
-    print(f"{name:<10} {age:>8} {gpa:>8.2f}")
+# # Данные
+# for name, age, gpa in students:
+#     print(f"{name:<10} {age:>8} {gpa:>8.2f}")
 
-# Итого
-print("-" * 28)
-avg_gpa = sum(s[2] for s in students) / len(students)
-print(f"{'Средний балл':<10} {'':>8} {avg_gpa:>8.2f}")
+# # Итого
+# print("-" * 28)
+# avg_gpa = sum(s[2] for s in students) / len(students)
+# print(f"{'Средний балл':<10} {'':>8} {avg_gpa:>8.2f}")
+
+
+# Задание 6 (в группе)
+# Подсчет частоты каждой буквы (в исходном тексте или своем)
+from collections import Counter
+
+def count_letters(text):
+    # Оставляем только буквы и приводим к нижнему регистру
+    letters = [char.lower() for char in text if char.isalpha()]
+    return Counter(letters)
+
+# Готовый текст для второго варианта
+default_text = "Привет, мир! Hello World. Это тестовый текст для проверки частоты букв"
+
+print("1. Ввести свой текст")
+print("2. Использовать готовый текст")
+
+while True:
+    try:
+        choice = int(input("Введите номер варианта (1 или 2): "))
+        if choice in (1, 2):
+            break
+        else:
+            print("Вы выбрали не 1 и не 2. Попробуйте снова")
+    except ValueError:
+        print("Ошибка! Вы ввели не цифру")
+
+if choice == 1:
+    text = input("Введите ваш текст: ")
+else: 
+    text = default_text
+    print(f"Используется готовый текст:\n{text}")
+
+
+# Подсчет и вывод
+result = count_letters(text)
+
+result = count_letters(text)
+# Проверка, что в тексте есть буквы
+if not result:
+    print("\nВ тексте нет букв — подсчитывать нечего.")
+else:
+    print("\nЧастота букв:")
+    for letter, count in sorted(result.items()):
+        print(f"'{letter}': {count}")
