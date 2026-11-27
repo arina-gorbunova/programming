@@ -42,25 +42,58 @@
 
 
 
-# Задание 3
-def caesar_cipher(text: str, shift: int) -> str:
-    """Шифрует текст шифром Цезаря."""
-    result = []
-    for char in text:
-        if char.isalpha():
-            base = ord('A') if char.isupper() else ord('a')
-            shifted = (ord(char) - base + shift) % 26 + base
-            result.append(chr(shifted))
-        else:
-            result.append(char)
-    return "".join(result)
+# # Задание 3
+# def caesar_cipher(text: str, shift: int) -> str:
+#     """Шифрует текст шифром Цезаря."""
+#     result = []
+#     for char in text:
+#         if char.isalpha():
+#             base = ord('A') if char.isupper() else ord('a')
+#             shifted = (ord(char) - base + shift) % 26 + base
+#             result.append(chr(shifted))
+#         else:
+#             result.append(char)
+#     return "".join(result)
 
-# Шифрование
-original = "Hi! My name is Arina"
-encrypted = caesar_cipher(original, 3)
-print(f"Оригинал: {original}")
-print(f"Зашифровано: {encrypted}")  # Kl! Pb qdph lv Dulqd
+# # Шифрование
+# original = "Hi! My name is Arina"
+# encrypted = caesar_cipher(original, 3)
+# print(f"Оригинал: {original}")
+# print(f"Зашифровано: {encrypted}")  # Kl! Pb qdph lv Dulqd
 
-# Дешифрование (сдвиг в обратную сторону)
-decrypted = caesar_cipher(encrypted, -3)
-print(f"Расшифровано: {decrypted}")  # Hi! My name is Arina
+# # Дешифрование (сдвиг в обратную сторону)
+# decrypted = caesar_cipher(encrypted, -3)
+# print(f"Расшифровано: {decrypted}")  # Hi! My name is Arina
+
+
+
+# Задание 4
+import re
+
+def validate_email(email: str) -> bool:
+    """Проверяет корректность email."""
+    pattern = r'^[\w.+-]+@[\w-]+\.[\w.-]+$'
+    return bool(re.match(pattern, email))
+
+def validate_phone(phone: str) -> bool:
+    """Проверяет корректность российского телефона."""
+    pattern = r'^\+7[\s-]?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$'
+    return bool(re.match(pattern, phone))
+
+def validate_url(url: str) -> bool:
+    """Проверяет корректность URL."""
+    pattern = r'^https://[\w.-]+\.[a-z]{2,}(/[\w./-]*)?$'
+    return bool(re.match(pattern, url))
+
+# Тесты
+tests = [
+    ("email", "ivan@example.com", validate_email),
+    ("email", "invalid@", validate_email),
+    ("phone", "+7 (999) 123-45-67", validate_phone),
+    ("url", "https://example.com", validate_url),
+    ("url", "not-a-url", validate_url),
+]
+
+for type_, value, validator in tests:
+    result = "✓" if validator(value) else "✗"
+    print(f"{result} {type_}: {value}")
